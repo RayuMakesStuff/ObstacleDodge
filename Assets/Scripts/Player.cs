@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private float speed = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,9 +17,10 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
+        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         
-        transform.Translate(x * Time.deltaTime,  0, z * Time.deltaTime);
+        transform.Translate(x * Time.deltaTime * speed,  0, z * Time.deltaTime * speed);
     }
 }
